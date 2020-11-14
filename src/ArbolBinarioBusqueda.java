@@ -8,6 +8,24 @@ class ArbolBinarioBusqueda{
 	
 	public NodoArbol getRaiz() {return raiz;}
 	
+	/*public int contarHojas() {
+		if(this.raiz==null)
+			return 0;
+		else
+			return contar(raiz);
+	}
+
+	public int contar(NodoArbol raiz) {
+	    if(raiz.getNodoDer()==null && raiz.getNodoIzq()==null)
+			return 1;
+	    else if(raiz.getNodoDer()==null)
+	    	return contar(raiz.getNodoIzq());
+	    else if(raiz.getNodoIzq()==null)
+	    	return contar(raiz.getNodoDer());
+		else
+			return contar(raiz.getNodoDer()) + contar(raiz.getNodoIzq());
+	}*/
+	
 	public void insertar(int dato){
 		raiz = insertar(dato, raiz);
 	}
@@ -109,6 +127,38 @@ class ArbolBinarioBusqueda{
 				buscar(raiz.getNodoIzq(), dato);
 			}else {
 				System.out.println("encontrado");
+			}
+		}
+		
+		public void mayor() {
+			if(this.raiz==null) {
+				System.out.println("No hay elementos");
+			}else {
+				obtenerMayor(raiz, raiz.getNodoDer());
+			}
+		}
+		
+	    public void obtenerMayor(NodoArbol anterior, NodoArbol actual) {
+			if(actual==null) {
+				System.out.println("El mayor es: " + anterior.getDato());
+			}else {
+				obtenerMayor(anterior.getNodoDer(), actual.getNodoDer());
+			}
+		}
+		
+	    public void menor() {
+			if(this.raiz==null) {
+				System.out.println("No hay elementos");
+			}else {
+				obtenerMenor(raiz, raiz.getNodoIzq());
+			}
+		}
+		
+	    public void obtenerMenor(NodoArbol anterior, NodoArbol actual) {
+			if(actual==null) {
+				System.out.println("El menor es: " + anterior.getDato());
+			}else {
+				obtenerMenor(anterior.getNodoIzq(), actual.getNodoIzq());
 			}
 		}
 }
