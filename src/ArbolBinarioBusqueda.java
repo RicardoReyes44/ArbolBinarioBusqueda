@@ -70,4 +70,45 @@ class ArbolBinarioBusqueda{
 	   		ant.setNodoDer(act.getNodoIzq());
 	   	return act;
 	}
+	
+	//4) mostrar recorrido
+		public void preorden(NodoArbol raiz) {
+			if(raiz!=null) {
+				System.out.println(raiz.getDato());
+				preorden(raiz.getNodoIzq());
+				preorden(raiz.getNodoDer());
+			}
+		}
+
+		public void inorden(NodoArbol raiz) {
+			if(raiz!=null) {
+				inorden (raiz.getNodoIzq());
+	            System.out.println(raiz.getDato());
+	            inorden (raiz.getNodoDer());
+			}
+		}
+
+		public void postorden(NodoArbol raiz) {
+			if(raiz!=null) {
+			    postorden(raiz.getNodoIzq());
+			    postorden(raiz.getNodoDer());
+			    System.out.println(raiz.getDato());
+			}
+		}
+
+		public void buscar(int dato) {
+			buscar(raiz, dato);
+		}
+		
+		public void buscar(NodoArbol raiz, int dato) {
+			if(raiz == null) {
+				System.out.println("Elemento no encontrado");
+			}else if(raiz.menorQue(dato)) {
+				buscar(raiz.getNodoDer(), dato);
+			}else if(raiz.mayorQue(dato)) {
+				buscar(raiz.getNodoIzq(), dato);
+			}else {
+				System.out.println("encontrado");
+			}
+		}
 }
