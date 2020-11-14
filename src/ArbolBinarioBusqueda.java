@@ -8,7 +8,7 @@ class ArbolBinarioBusqueda{
 	
 	public NodoArbol getRaiz() {return raiz;}
 	
-	/*public int contarHojas() {
+	public int contarHojas() {
 		if(this.raiz==null)
 			return 0;
 		else
@@ -24,7 +24,7 @@ class ArbolBinarioBusqueda{
 	    	return contar(raiz.getNodoDer());
 		else
 			return contar(raiz.getNodoDer()) + contar(raiz.getNodoIzq());
-	}*/
+	}
 	
 	public void insertar(int dato){
 		raiz = insertar(dato, raiz);
